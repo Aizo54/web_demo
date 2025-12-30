@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到2026年！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3e 50%, #0c0c2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 背景装饰元素 */
+        .background-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff3366 0%, transparent 70%);
+            top: 10%;
+            left: 5%;
+        }
+        
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #3366ff 0%, transparent 70%);
+            bottom: 10%;
+            right: 8%;
+        }
+        
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #33ffcc 0%, transparent 70%);
+            top: 60%;
+            left: 10%;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+        }
+        
+        /* 标题样式 */
+        .main-title {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff3366, #33ccff, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 51, 102, 0.7), 0 0 30px rgba(51, 204, 255, 0.5);
+            }
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: #aaccff;
+            font-weight: 300;
+        }
+        
+        /* 年份数字样式 */
+        .year-number {
+            font-size: 8rem;
+            font-weight: 800;
+            margin: 30px 0;
+            background: linear-gradient(to bottom, #ffffff, #aaccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .year-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #ff3366, #33ccff, #ffcc00);
+            bottom: -10px;
+            left: 0;
+            border-radius: 5px;
+            filter: blur(5px);
+        }
+        
+        /* 内容区域样式 */
+        .content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #e6f0ff;
+        }
+        
+        /* 计数器样式 */
+        .counter {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .counter-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 120px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .counter-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffcc00;
+            margin-bottom: 5px;
+        }
+        
+        .counter-label {
+            font-size: 1rem;
+            color: #aaccff;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff3366, #ff9966);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, #3366ff, #33ccff);
+            box-shadow: 0 5px 15px rgba(51, 102, 255, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 10px 20px rgba(51, 102, 255, 0.6);
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            margin-top: 40px;
+            color: #8899cc;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+            
+            .year-number {
+                font-size: 5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+            
+            .counter-item {
+                min-width: 100px;
+                padding: 15px;
+            }
+            
+            .counter-value {
+                font-size: 2rem;
+            }
+        }
+        
+        /* 烟花效果 */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* 数字时钟 */
+        .digital-clock {
+            font-size: 1.5rem;
+            color: #33ffcc;
+            margin: 20px 0;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景装饰元素 -->
+    <div class="background-element element-1"></div>
+    <div class="background-element element-2"></div>
+    <div class="background-element element-3"></div>
+    
+    <div class="container">
+        <h1 class="main-title">欢迎来到未来</h1>
+        <h2 class="subtitle">开启2026年的全新旅程</h2>
+        
+        <div class="year-number">2026</div>
+        
+        <div class="digital-clock" id="digitalClock">正在加载时间...</div>
+        
+        <div class="content">
+            <p class="message">
+                欢迎来到2026年！这是一个充满希望和创新的崭新开始。随着科技的快速发展和全球合作的加深，我们正共同迈向一个更加智能、可持续和互联的世界。让我们拥抱变化，迎接挑战，共同创造美好的未来！
+            </p>
+            
+            <div class="counter">
+                <div class="counter-item">
+                    <div class="counter-value" id="days">365</div>
+                    <div class="counter-label">全年天数</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="hours">8760</div>
+                    <div class="counter-label">总小时数</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="minutes">525600</div>
+                    <div class="counter-label">总分钟数</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="seconds">31536000</div>
+                    <div class="counter-label">总秒数</div>
+                </div>
+            </div>
+            
+            <p class="message">
+                2026年将是人工智能、可持续能源和太空探索等领域取得突破性进展的一年。让我们以开放的心态和创新的精神，共同书写人类历史的新篇章！
+            </p>
+            
+            <div>
+                <a href="#" class="btn" id="wishBtn">
+                    <i class="fas fa-star"></i> 发送新年祝福
+                </a>
+                <a href="#" class="btn btn-secondary" id="resolutionBtn">
+                    <i class="fas fa-bullseye"></i> 设定2026目标
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 新年欢迎页面 | 设计灵感来自未来科技</p>
+            <p>祝您和您的家人在2026年健康、快乐、成功！</p>
+        </div>
+    </div>
+    
+    <script>
+        // 数字时钟更新
+        function updateClock() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('digitalClock').textContent = 
+                `${year}年${month}月${day}日 ${hours}:${minutes}:${seconds}`;
+        }
+        
+        // 初始化时钟
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        // 动态更新计数器
+        function updateCounters() {
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 1);
+            const endOfYear = new Date(now.getFullYear() + 1, 0, 1);
+            const totalMs = endOfYear - startOfYear;
+            
+            const days = Math.floor(totalMs / (1000 * 60 * 60 * 24));
+            const hours = days * 24;
+            const minutes = hours * 60;
+            const seconds = minutes * 60;
+            
+            // 使用动画效果更新数字
+            animateCounter('days', days);
+            animateCounter('hours', hours);
+            animateCounter('minutes', minutes);
+            animateCounter('seconds', seconds);
+        }
+        
+        // 数字动画效果
+        function animateCounter(id, target) {
+            const element = document.getElementById(id);
+            const current = parseInt(element.textContent.replace(/,/g, ''));
+            const increment = target > current ? 1 : -1;
+            const step = Math.abs(target - current) / 50;
+            
+            let currentValue = current;
+            
+            function updateValue() {
+                if ((increment > 0 && currentValue < target) || (increment < 0 && currentValue > target)) {
+                    currentValue += increment * Math.ceil(step);
+                    
+                    // 确保不超过目标值
+                    if ((increment > 0 && currentValue > target) || (increment < 0 && currentValue < target)) {
+                        currentValue = target;
+                    }
+                    
+                    // 格式化数字
+                    element.textContent = currentValue.toLocaleString();
+                    
+                    // 继续动画
+                    requestAnimationFrame(updateValue);
+                } else {
+                    element.textContent = target.toLocaleString();
+                }
+            }
+            
+            requestAnimationFrame(updateValue);
+        }
+        
+        // 初始化计数器
+        updateCounters();
+        
+        // 创建烟花效果
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            
+            // 随机位置
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            // 随机颜色
+            const colors = ['#ff3366', '#33ccff', '#ffcc00', '#33ffcc', '#9966ff'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            firework.style.left = `${x}%`;
+            firework.style.top = `${y}%`;
+            firework.style.backgroundColor = color;
+            firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+            
+            document.body.appendChild(firework);
+            
+            // 烟花爆炸效果
+            setTimeout(() => {
+                firework.style.transform = 'scale(20)';
+                firework.style.opacity = '0';
+                firework.style.transition = 'transform 0.8s ease-out, opacity 0.8s';
+                
+                // 移除元素
+                setTimeout(() => {
+                    if (firework.parentNode) {
+                        firework.parentNode.removeChild(firework);
+                    }
+                }, 800);
+            }, 100);
+        }
+        
+        // 定期创建烟花
+        setInterval(createFirework, 1000);
+        
+        // 按钮交互
+        document.getElementById('wishBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('🎉 祝您在2026年心想事成，万事如意！愿新的一年为您带来健康、幸福和成功！');
+            
+            // 添加一些烟花效果
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => createFirework(), i * 100);
+            }
+        });
+        
+        document.getElementById('resolutionBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const resolutions = [
+                "学习一项新技能",
+                "保持健康的生活方式",
+                "阅读更多书籍",
+                "旅行探索新地方",
+                "为环保贡献力量",
+                "加强与家人朋友的联系",
+                "追求职业发展",
+                "培养新的爱好"
+            ];
+            
+            const randomResolution = resolutions[Math.floor(Math.random() * resolutions.length)];
+            alert(`🎯 您的2026年目标建议：${randomResolution}！\n\n祝您目标达成，收获满满的一年！`);
+        });
+        
+        // 页面加载完成后的初始化
+        window.addEventListener('load', function() {
+            // 添加一些初始烟花
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createFirework(), i * 200);
+            }
+        });
+    </script>
+</body>
+</html>
