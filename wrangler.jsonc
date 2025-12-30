@@ -1,0 +1,6 @@
+// wrangler.jsonc
+{
+  "name": "你的-worker名称",
+  "compatibility_date": "2025-12-30",
+  "main": "src/index.ts" // 根据你的实际入口文件修改
+}
