@@ -1,21 +1,6 @@
 {
   "name": "my-static-site",
-  "compatibility_date": "2024-12-30",
-  
-  // 对于静态网站，使用pages配置
-  "pages_build_output_dir": "./dist",
-  
-  // 构建命令
-  "build": {
-    "command": "npm run build",
-    "cwd": "."
-  },
-  
-  // 路由配置（如果使用自定义域名）
-  "routes": [
-    {
-      "pattern": "yourdomain.com/*",
-      "zone_name": "yourdomain.com"
-    }
-  ]
+  "compatibility_date": "2024-12-30"
 }
+
+
